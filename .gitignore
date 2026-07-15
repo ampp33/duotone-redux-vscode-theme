@@ -1,0 +1,4 @@
+node_modules/
+*.vsix
+.claude/settings.local.json
+.DS_Store

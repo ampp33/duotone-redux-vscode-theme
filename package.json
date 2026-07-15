@@ -1,0 +1,60 @@
+{
+    "name": "duotone-improved",
+    "displayName": "DuoTone Improved",
+    "description": "Fork of Atom's DuoTone theme for Visual Studio Code",
+    "version": "1.0.0",
+    "publisher": "ampp33",
+    "scripts": {
+        "build": "node ./src/build.js"
+    },
+    "engines": {
+        "vscode": "^1.87.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "icon": "icon.png",
+    "galleryBanner": {
+        "color": "#444C55",
+        "theme": "dark"
+    },
+    "contributes": {
+        "themes": [
+            {
+                "label": "DuoTone Dark Sea",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Sea.json"
+            },
+            {
+                "label": "DuoTone Dark Space",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Space.json"
+            },
+            {
+                "label": "DuoTone Dark Forest",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Forest.json"
+            },
+            {
+                "label": "DuoTone Dark Sky",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Sky.json"
+            },
+            {
+                "label": "DuoTone Dark Earth",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Earth.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ampp33/duotone-redux-vscode-theme.git"
+    },
+    "homepage": "https://github.com/ampp33/duotone-redux-vscode-theme#readme",
+    "bugs": {
+        "url": "https://github.com/ampp33/duotone-redux-vscode-theme/issues"
+    },
+    "license": "MIT",
+    "author": "ampp33"
+}
