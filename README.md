@@ -2,7 +2,7 @@
 
 A from-the-ground-up reworked fork of the DuoTone dark themes for Visual Studio Code — every workbench surface (terminal, git decorations, diagnostics, menus, popups, borders, buttons, links) is generated from each variant's own two-hue palette, so the whole editor UI reads as one cohesive duotone instead of just the syntax highlighting.
 
-![DuoTone Redux screenshot](./screenshot.png)
+![Screenshot](./screenshot.png)
 
 ## Installation
 
@@ -10,13 +10,17 @@ Search for **"DuoTone Redux"** in the VS Code Extensions view, or install from t
 
 ## Included Themes
 
-- DuoTone Redux Sea
-- DuoTone Redux Space
-- DuoTone Redux Forest
-- DuoTone Redux Sky
-- DuoTone Redux Earth
-
 Pick one from **File > Preferences > Theme > Color Theme** (`Ctrl+K Ctrl+T` / `Cmd+K Cmd+T`).
+
+![Sea palette](./palettes/sea.png)
+
+![Space palette](./palettes/space.png)
+
+![Forest palette](./palettes/forest.png)
+
+![Sky palette](./palettes/sky.png)
+
+![Earth palette](./palettes/earth.png)
 
 ## How it works
 
