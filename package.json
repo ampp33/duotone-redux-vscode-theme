@@ -1,6 +1,6 @@
 {
-    "name": "duotone-improved",
-    "displayName": "DuoTone Improved",
+    "name": "duotone-redux",
+    "displayName": "DuoTone Redux",
     "description": "Fork of Atom's DuoTone theme for Visual Studio Code",
     "version": "1.0.0",
     "publisher": "ampp33",
@@ -21,27 +21,27 @@
     "contributes": {
         "themes": [
             {
-                "label": "DuoTone Dark Sea",
+                "label": "DuoTone Redux Sea",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Sea.json"
             },
             {
-                "label": "DuoTone Dark Space",
+                "label": "DuoTone Redux Space",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Space.json"
             },
             {
-                "label": "DuoTone Dark Forest",
+                "label": "DuoTone Redux Forest",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Forest.json"
             },
             {
-                "label": "DuoTone Dark Sky",
+                "label": "DuoTone Redux Sky",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Sky.json"
             },
             {
-                "label": "DuoTone Dark Earth",
+                "label": "DuoTone Redux Earth",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Earth.json"
             }

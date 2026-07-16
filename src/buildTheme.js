@@ -95,7 +95,7 @@ function buildTheme(p) {
     const brightCyan = hslToHex(uno2H + 12, uno2S, uno2L);
 
     return {
-        name: `DuoTone Dark ${p.NAME}`,
+        name: `DuoTone Redux ${p.NAME}`,
         type: "dark",
         semanticClass: `theme.duotone_dark_${p.ID}`,
         author: "Brian Douglas",
