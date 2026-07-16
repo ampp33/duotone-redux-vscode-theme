@@ -2,7 +2,7 @@
     "name": "duotone-redux",
     "displayName": "DuoTone Redux",
     "description": "Fork of Atom's DuoTone theme for Visual Studio Code",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "ampp33",
     "scripts": {
         "build": "node ./src/build.js"
