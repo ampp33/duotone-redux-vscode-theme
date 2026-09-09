@@ -1,5 +1,5 @@
 {
-    "name": "DuoTone Redux Space",
+    "name": "DuoTone Redux Space (Higher Contrast)",
     "type": "dark",
     "semanticClass": "theme.duotone_dark_duotone_dark_space",
     "author": "Brian Douglas",
@@ -27,12 +27,12 @@
         "editor.wordHighlightBackground": "#fe773426",
         "editor.wordHighlightStrongBackground": "#fe773440",
         "editorCursor.foreground": "#fe7734",
-        "editorBracketHighlight.foreground1": "#5b5b7b",
-        "editorBracketHighlight.foreground2": "#5b5b7b",
-        "editorBracketHighlight.foreground3": "#5b5b7b",
-        "editorBracketHighlight.foreground4": "#5b5b7b",
-        "editorBracketHighlight.foreground5": "#5b5b7b",
-        "editorBracketHighlight.foreground6": "#5b5b7b",
+        "editorBracketHighlight.foreground1": "#FFFFFF",
+        "editorBracketHighlight.foreground2": "#FFFFFF",
+        "editorBracketHighlight.foreground3": "#FFFFFF",
+        "editorBracketHighlight.foreground4": "#FFFFFF",
+        "editorBracketHighlight.foreground5": "#FFFFFF",
+        "editorBracketHighlight.foreground6": "#FFFFFF",
         "editorBracketHighlight.unexpectedBracket.foreground": "#fe9f34",
         "scrollbar.shadow": "#00000000",
         "scrollbarSlider.background": "#49495a4d",
@@ -164,7 +164,7 @@
         "sideBarSectionHeader.foreground": "#bebeef",
         "sideBarTitle.foreground": "#bebeef",
         "breadcrumb.background": "#24242e",
-        "breadcrumb.foreground": "#5b5b7b",
+        "breadcrumb.foreground": "#FFFFFF",
         "breadcrumb.focusForeground": "#bebeef",
         "breadcrumb.activeSelectionForeground": "#bebeef",
         "breadcrumbPicker.background": "#24242e"
@@ -174,7 +174,7 @@
             "name": "Comment",
             "scope": "comment",
             "settings": {
-                "foreground": "#49495a",
+                "foreground": "#FFFFFF",
                 "fontStyle": " italic"
             }
         },
@@ -182,7 +182,7 @@
             "name": "Comment in Params",
             "scope": "meta.parameters comment.block",
             "settings": {
-                "foreground": "#644c40",
+                "foreground": "#FFFFFF",
                 "fontStyle": " italic"
             }
         },
@@ -295,7 +295,7 @@
             "scope": "entity.name.type.module",
             "settings": {
                 "fontStyle": "",
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -311,7 +311,7 @@
             "scope": "entity.name.function",
             "settings": {
                 "fontStyle": "",
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -396,14 +396,14 @@
                 "punctuation"
             ],
             "settings": {
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
             "name": "String Punctuation",
             "scope": "punctuation.definition.string",
             "settings": {
-                "foreground": "#644c40"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -446,7 +446,7 @@
             "scope": "comment.block.c",
             "settings": {
                 "fontStyle": " italic",
-                "foreground": "#644c40"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -463,7 +463,7 @@
             "name": "CSS Meta",
             "scope": "meta.property-value",
             "settings": {
-                "foreground": "#49495a"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -495,14 +495,14 @@
             "name": "HTML Text",
             "scope": "text.html",
             "settings": {
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
             "name": "CSS Source Base",
             "scope": "source.css",
             "settings": {
-                "foreground": "#49495a"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -520,7 +520,7 @@
                 "support.function.sass"
             ],
             "settings": {
-                "foreground": "#644c40"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -531,7 +531,7 @@
                 "punctuation.terminator.rule.sass"
             ],
             "settings": {
-                "foreground": "#644c40"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -630,21 +630,21 @@
             "name": "Markdown Quote",
             "scope": "markup.quote",
             "settings": {
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
             "name": "Markdown Strikethrough",
             "scope": "markup.strikethrough",
             "settings": {
-                "foreground": "#49495a"
+                "foreground": "#FFFFFF"
             }
         },
         {
             "name": "CoffeeScript Source",
             "scope": "source.coffee",
             "settings": {
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {
@@ -654,7 +654,7 @@
                 "constant.name.attribute.tag.pug"
             ],
             "settings": {
-                "foreground": "#5b5b7b"
+                "foreground": "#FFFFFF"
             }
         },
         {

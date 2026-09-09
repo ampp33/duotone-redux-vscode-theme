@@ -60,14 +60,33 @@ function mix(hex1, hex2, weight) {
     ].map(v => v.toString(16).padStart(2, "0")).join("");
 }
 
-function buildTheme(p) {
+function buildTheme(p, options = {}) {
+    const { highContrast = false } = options;
+    // When enabled, the darkest text-foreground tiers (UNO4/UNO5/DUO3 used
+    // as comment/punctuation/function-name/etc. text) are swapped to white
+    // instead of their normal muted shade, for users who find those tiers
+    // too low-contrast against BACKGROUND. Only applied to actual text
+    // foregrounds — borders, backgrounds, indent guides, and terminal ANSI
+    // slots keep their designed colors since brightening those would look
+    // broken rather than more readable.
+    const t = (hex) => (highContrast ? "#FFFFFF" : hex);
+
     const selection = lighten(p.BACKGROUND, 12);
     const cursorLine = withAlpha(selection, 0.26);
-    // Slightly lighter than the flat background, used for list/quick-pick
-    // selection so a selected row is still visibly distinct now that every
-    // panel shares the same base background.
+    // Slightly lighter than the flat background, used as the background of
+    // floating widgets (menus, quick input, hover/suggest/peek) now that
+    // every panel shares the same base background. Row/item selection
+    // inside those widgets must NOT reuse this value — it's their own
+    // background — so selection uses the brighter `selection` (lighten 12)
+    // instead, matching menu.selectionBackground.
     const selectionDark = lighten(p.BACKGROUND, 6);
-    const hoverDark = lighten(p.BACKGROUND, 4);
+    // Was lighten(p.BACKGROUND, 4) — darker than the lighten-6 background of
+    // menus/widgets it's often painted on top of (e.g. VS Code's menu
+    // widget uses list.hoverBackground, not menu.selectionBackground, for
+    // its focused/keyboard-navigated row), which made "selected" menu
+    // items look darker than the menu itself. Use the same light value as
+    // the other selection/focus colors instead.
+    const hoverDark = selection;
     // Deepest UNO tier (#49495A in Space), used as a seam/border color so
     // adjacent same-background panels read as visually distinct regions.
     const panelBorder = p.UNO5;
@@ -95,7 +114,7 @@ function buildTheme(p) {
     const brightCyan = hslToHex(uno2H + 12, uno2S, uno2L);
 
     return {
-        name: `DuoTone Redux ${p.NAME}`,
+        name: `DuoTone Redux ${p.NAME}${highContrast ? " (Higher Contrast)" : ""}`,
         type: "dark",
         semanticClass: `theme.duotone_dark_${p.ID}`,
         author: "Brian Douglas",
@@ -123,12 +142,12 @@ function buildTheme(p) {
             "editor.wordHighlightBackground": withAlpha(p.DUO1, 0.15),
             "editor.wordHighlightStrongBackground": withAlpha(p.DUO1, 0.25),
             "editorCursor.foreground": p.DUO1,
-            "editorBracketHighlight.foreground1": p.UNO4,
-            "editorBracketHighlight.foreground2": p.UNO4,
-            "editorBracketHighlight.foreground3": p.UNO4,
-            "editorBracketHighlight.foreground4": p.UNO4,
-            "editorBracketHighlight.foreground5": p.UNO4,
-            "editorBracketHighlight.foreground6": p.UNO4,
+            "editorBracketHighlight.foreground1": t(p.UNO4),
+            "editorBracketHighlight.foreground2": t(p.UNO4),
+            "editorBracketHighlight.foreground3": t(p.UNO4),
+            "editorBracketHighlight.foreground4": t(p.UNO4),
+            "editorBracketHighlight.foreground5": t(p.UNO4),
+            "editorBracketHighlight.foreground6": t(p.UNO4),
             // Muted rather than the hard INVALID_BG accent: some grammars
             // (e.g. Kotlin's "->" arrow) misreport a lone bracket-like char
             // as "unexpected" on ordinary, valid code, so a jarring pink-red
@@ -150,11 +169,11 @@ function buildTheme(p) {
             "titleBar.inactiveBackground": p.BACKGROUND,
             "titleBar.inactiveForeground": p.UNO1,
             "titleBar.border": panelBorder,
-            "list.activeSelectionBackground": selectionDark,
+            "list.activeSelectionBackground": selection,
             "list.hoverBackground": hoverDark,
-            "list.inactiveSelectionBackground": selectionDark,
-            "list.focusBackground": selectionDark,
-            "quickInputList.focusBackground": lighten(p.BACKGROUND, 12),
+            "list.inactiveSelectionBackground": selection,
+            "list.focusBackground": selection,
+            "quickInputList.focusBackground": selection,
             "panel.background": p.BACKGROUND,
             "panel.border": panelBorder,
             "dropdown.background": p.BACKGROUND,
@@ -169,10 +188,10 @@ function buildTheme(p) {
             "statusBarItem.errorBackground": p.DEPRECATED_BG,
             "statusBarItem.hoverBackground": p.BACKGROUND,
             "statusBarItem.prominentHoverBackground": p.BACKGROUND,
-            "menubar.selectionBackground": selectionDark,
+            "menubar.selectionBackground": selection,
             "menu.background": selectionDark,
             "menu.foreground": p.UNO1,
-            "menu.selectionBackground": lighten(p.BACKGROUND, 12),
+            "menu.selectionBackground": selection,
             "menu.selectionForeground": p.UNO1,
             "menu.separatorBackground": p.INVISIBLES,
             "menu.border": p.BACKGROUND,
@@ -246,7 +265,7 @@ function buildTheme(p) {
             "editorHoverWidget.border": p.BACKGROUND,
             "editorSuggestWidget.background": selectionDark,
             "editorSuggestWidget.foreground": p.UNO1,
-            "editorSuggestWidget.selectedBackground": lighten(p.BACKGROUND, 12),
+            "editorSuggestWidget.selectedBackground": selection,
             "editorSuggestWidget.border": p.BACKGROUND,
             "editorSuggestWidget.highlightForeground": p.DUO1,
             "peekView.border": p.UNO4,
@@ -286,7 +305,7 @@ function buildTheme(p) {
             "sideBarSectionHeader.foreground": p.UNO1,
             "sideBarTitle.foreground": p.UNO1,
             "breadcrumb.background": p.BACKGROUND,
-            "breadcrumb.foreground": p.UNO4,
+            "breadcrumb.foreground": t(p.UNO4),
             "breadcrumb.focusForeground": p.UNO1,
             "breadcrumb.activeSelectionForeground": p.UNO1,
             "breadcrumbPicker.background": p.BACKGROUND,
@@ -295,12 +314,12 @@ function buildTheme(p) {
             {
                 name: "Comment",
                 scope: "comment",
-                settings: { foreground: p.UNO5, fontStyle: " italic" },
+                settings: { foreground: t(p.UNO5), fontStyle: " italic" },
             },
             {
                 name: "Comment in Params",
                 scope: "meta.parameters comment.block",
-                settings: { foreground: p.DUO3, fontStyle: " italic" },
+                settings: { foreground: t(p.DUO3), fontStyle: " italic" },
             },
             {
                 name: "String",
@@ -370,7 +389,7 @@ function buildTheme(p) {
             {
                 name: "Module/namespace name",
                 scope: "entity.name.type.module",
-                settings: { fontStyle: "", foreground: p.UNO4 },
+                settings: { fontStyle: "", foreground: t(p.UNO4) },
             },
             {
                 name: "Inherited class",
@@ -380,7 +399,7 @@ function buildTheme(p) {
             {
                 name: "Function name",
                 scope: "entity.name.function",
-                settings: { fontStyle: "", foreground: p.UNO4 },
+                settings: { fontStyle: "", foreground: t(p.UNO4) },
             },
             {
                 name: "Function argument",
@@ -430,12 +449,12 @@ function buildTheme(p) {
             {
                 name: "Punctuation Meta",
                 scope: ["meta.brace", "punctuation"],
-                settings: { foreground: p.UNO4 },
+                settings: { foreground: t(p.UNO4) },
             },
             {
                 name: "String Punctuation",
                 scope: "punctuation.definition.string",
-                settings: { foreground: p.DUO3 },
+                settings: { foreground: t(p.DUO3) },
             },
             {
                 name: "Accessor Punctuation",
@@ -460,7 +479,7 @@ function buildTheme(p) {
             {
                 name: "C Comment",
                 scope: "comment.block.c",
-                settings: { fontStyle: " italic", foreground: p.DUO3 },
+                settings: { fontStyle: " italic", foreground: t(p.DUO3) },
             },
             {
                 name: "CSS Property",
@@ -470,7 +489,7 @@ function buildTheme(p) {
             {
                 name: "CSS Meta",
                 scope: "meta.property-value",
-                settings: { foreground: p.UNO5 },
+                settings: { foreground: t(p.UNO5) },
             },
             {
                 name: "Object Literal Key",
@@ -490,14 +509,14 @@ function buildTheme(p) {
             {
                 name: "HTML Text",
                 scope: "text.html",
-                settings: { foreground: p.UNO4 },
+                settings: { foreground: t(p.UNO4) },
             },
 
             // CSS / SCSS / SASS / Less
             {
                 name: "CSS Source Base",
                 scope: "source.css",
-                settings: { foreground: p.UNO5 },
+                settings: { foreground: t(p.UNO5) },
             },
             {
                 name: "CSS Unit",
@@ -507,12 +526,12 @@ function buildTheme(p) {
             {
                 name: "CSS Function",
                 scope: ["support.function.css", "support.function.scss", "support.function.sass"],
-                settings: { foreground: p.DUO3 },
+                settings: { foreground: t(p.DUO3) },
             },
             {
                 name: "CSS Terminator",
                 scope: ["punctuation.terminator.rule.css", "punctuation.terminator.rule.scss", "punctuation.terminator.rule.sass"],
-                settings: { foreground: p.DUO3 },
+                settings: { foreground: t(p.DUO3) },
             },
             {
                 name: "CSS At-Rule",
@@ -583,26 +602,26 @@ function buildTheme(p) {
             {
                 name: "Markdown Quote",
                 scope: "markup.quote",
-                settings: { foreground: p.UNO4 },
+                settings: { foreground: t(p.UNO4) },
             },
             {
                 name: "Markdown Strikethrough",
                 scope: "markup.strikethrough",
-                settings: { foreground: p.UNO5 },
+                settings: { foreground: t(p.UNO5) },
             },
 
             // CoffeeScript
             {
                 name: "CoffeeScript Source",
                 scope: "source.coffee",
-                settings: { foreground: p.UNO4 },
+                settings: { foreground: t(p.UNO4) },
             },
 
             // Jade / Pug
             {
                 name: "Jade/Pug Attribute Tag",
                 scope: ["constant.name.attribute.tag.jade", "constant.name.attribute.tag.pug"],
-                settings: { foreground: p.UNO4 },
+                settings: { foreground: t(p.UNO4) },
             },
 
             {

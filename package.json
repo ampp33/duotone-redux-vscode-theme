@@ -2,7 +2,7 @@
     "name": "duotone-redux",
     "displayName": "DuoTone Redux",
     "description": "Fork of Atom's DuoTone theme for Visual Studio Code",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "ampp33",
     "scripts": {
         "build": "node ./src/build.js"
@@ -26,9 +26,19 @@
                 "path": "./themes/Sea.json"
             },
             {
+                "label": "DuoTone Redux Sea (Higher Contrast)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/SeaHighContrast.json"
+            },
+            {
                 "label": "DuoTone Redux Space",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Space.json"
+            },
+            {
+                "label": "DuoTone Redux Space (Higher Contrast)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/SpaceHighContrast.json"
             },
             {
                 "label": "DuoTone Redux Forest",
@@ -36,14 +46,29 @@
                 "path": "./themes/Forest.json"
             },
             {
+                "label": "DuoTone Redux Forest (Higher Contrast)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/ForestHighContrast.json"
+            },
+            {
                 "label": "DuoTone Redux Sky",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Sky.json"
             },
             {
+                "label": "DuoTone Redux Sky (Higher Contrast)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/SkyHighContrast.json"
+            },
+            {
                 "label": "DuoTone Redux Earth",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Earth.json"
+            },
+            {
+                "label": "DuoTone Redux Earth (Higher Contrast)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/EarthHighContrast.json"
             }
         ]
     },

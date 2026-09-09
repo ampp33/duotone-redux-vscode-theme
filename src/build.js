@@ -9,6 +9,10 @@ for (const [name, palette] of Object.entries(themes)) {
     const theme = buildTheme(palette);
     const outPath = path.join(__dirname, "../themes/", `${name}.json`);
     fs.writeFileSync(outPath, JSON.stringify(theme, null, 4));
+
+    const highContrastTheme = buildTheme(palette, { highContrast: true });
+    const highContrastOutPath = path.join(__dirname, "../themes/", `${name}HighContrast.json`);
+    fs.writeFileSync(highContrastOutPath, JSON.stringify(highContrastTheme, null, 4));
 }
 
 console.log("Done writing themes");

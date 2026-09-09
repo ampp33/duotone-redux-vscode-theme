@@ -1,5 +1,10 @@
 # Change Log
 
+## v1.0.2
+
+- Added a "(Higher Contrast)" variant of every theme, which swaps the darkest text tiers (comments, punctuation, function names, etc.) to white for readers who find those low enough contrast against the background to be hard to read
+- Fixed selection/highlight backgrounds (File/Edit/View menu items, list hover/selection, quick-pick, suggest widget) rendering darker than the panel behind them, making the current selection hard to see
+
 ## v1.0.1
 
 - Updated README
